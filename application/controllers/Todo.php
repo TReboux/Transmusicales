@@ -21,25 +21,24 @@ class Todo extends CI_Controller {
 		     //If no session, redirect to login page
 		     redirect('login', 'refresh');
 		}
-        
-        //$this->artist_model->init_sessions_test();
 
 
 		$user=$data['login'];
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$data['title'] = 'Salles disponnibles';
+		$data['title'] = 'Liste des salles';
 		$this->form_validation->set_rules('title','Enonc&eacute;','required');
 		if ($this->form_validation->run() !== FALSE ){
 			$this->todo_model->todo_add_task();
 		}
 		$this->load->view('header',$data);
 		$this->load->view('headerdisco');
+		$this->load->view('language');      
 		
 
 		$salles = array(
 			'nom'=>'',
-			'tri_salle'=>'nom',
+			'tri_salle'=>'',
 			'heure_debut'=>-1,
 			'heure_fin'=>-1,
 			'date'=>'',
@@ -72,11 +71,11 @@ class Todo extends CI_Controller {
 		if($this->input->get_post('handicap')){
 			$salles['handicap'] = $this->input->post('handicap');
 		}
-        
+
 		$this->session->set_userdata('recherche_salle',$salles);
 		print_r($this->session->userdata('recherche_salle'));
 
-		$data['horaires'] = array(16,17,18,19,20,21,22,23,24,25);
+		$data['horaires'] = array(16,17,18,19,20,21,22,23,0,1);
 		$data['capacites'] = array(100,200,300,500,1000);
 		$this->load->view('form_salle_recherche',$data);
 		
@@ -94,6 +93,10 @@ class Todo extends CI_Controller {
 		redirect('todo','update');
 	}
 	
+    /*
+    public function reserver_salle{
+        redirect('booking','refresh');
+    }*/
 
 	public function logout(){
 	   $this->session->unset_userdata('logged_in');

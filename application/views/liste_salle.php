@@ -27,7 +27,7 @@
 
 			?>
 		</td>
-		<td class="ligne-salle"><?php echo anchor('','<span class="glyphicon glyphicon-calendar reserver"></span>'); ?></td>
+		<td class="ligne-salle"><?php echo anchor('todo/reserver/'.$salle_item['nom'],'<span class="glyphicon glyphicon-calendar reserver"></span>'); ?></td>
 	</tr>
 	<?php 
 		endforeach; 
