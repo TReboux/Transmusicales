@@ -31,27 +31,47 @@
 					</select>
 				
 				</div>
+                <div class="col-md-3">
+					<label>Le :</label>
+                    <?php
+					echo '<input class="inp-s5 form-control form-input" type="date" id="date" name="date" placeholder="Date (JJ/MM/AAAA)"';
+					if($this->session->has_userdata('recherche_salle')['date'] == ''){
+						echo ' value="'.$this->session->userdata('recherche_salle')['date'].'"';
+					}
+					echo '/>';
+                    ?>
+				</div>
 				<div class="col-md-2">
 					<label>De :</label>
 					<select required name="heure_debut" class="inp-s5 form-control form-input"/>
 						<option value ="-1">(vide)</option>
-						<?php foreach ($horaires as $heure): ?>
-						<option value ="<?php echo $heure ?>"><?php echo $heure."h"?></option>
-						<?php endforeach?>
+                        <?php 
+						foreach ($horaires as $heure){
+							echo '<option value="'.$heure.'"';
+							if ($heure == $this->session->userdata('recherche_salle')['heure_debut']){
+								echo ' selected';
+							}
+							echo '>'.($heure%24).'h</option>';						
+
+						}						
+						?>
 					</select>
 				</div>
 				<div class="col-md-2">
 					<label>A :</label>
 					<select required name="heure_fin" class="inp-s5 form-control form-input"/>
 						<option value ="-1">(vide)</option>
-						<?php foreach ($horaires as $heure): ?>
-						<option value ="<?php echo $heure ?>"><?php echo $heure."h"?></option>
-						<?php endforeach?>
+						<?php 
+						foreach ($horaires as $heure){
+							echo '<option value="'.$heure.'"';
+							if ($heure == $this->session->userdata('recherche_salle')['heure_fin']){
+								echo ' selected';
+							}
+							echo '>'.($heure%24).'h</option>';						
+
+						}						
+						?>
 					</select>
-				</div>
-				<div class="col-md-3">
-					<label>Le :</label>
-					<input class="inp-s5 form-control form-input" type="date" id="debut" name="debut" placeholder="Date (JJ/MM/AAAA)"/>
 				</div>
 				<div class="col-md-3">
 					<label>Accès handicapé :</label>
