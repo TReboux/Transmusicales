@@ -28,6 +28,8 @@ function index()
    {
      //Field validation failed.  User redirected to login page
 		$this->load->view('header');
+		$this->load->view('headervoid');       
+		$this->load->view('language');      
 		$data['countries'] = $this->create_user->get_countries();
         $data['years'] = $this->create_user->get_years();
 		$this->load->view('form_signin', $data);

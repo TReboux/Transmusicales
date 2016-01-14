@@ -20,6 +20,8 @@ function index()
    {
      //Field validation failed.  User redirected to login page
 		$this->load->view('header');
+		$this->load->view('headervoid');
+		$this->load->view('language');      
 		$this->load->view('form_login');
 		$this->load->view('footer');
    }

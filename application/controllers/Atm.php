@@ -24,6 +24,7 @@ class Todo extends CI_Controller {
 		$user=$data['login'];
 		$this->load->view('header',$data);
 		$this->load->view('headerdisco');
+		$this->load->view('language');      
 		$this->load->view('liste_salle');
 		$this->load->view('footer');
 	}

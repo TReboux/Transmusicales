@@ -11,7 +11,7 @@
 	<body>
 		<div class="header container">
 			
-			<div class="text-left col-md-9">
+			<div class="text-left col-md-4">
                 <h1>Trans<img src="../css/img/atm_blanc.png" id="atm-logo"></h1>
 			</div>
 				

@@ -21,6 +21,8 @@ class Signin extends CI_Controller {
 		$this->load->view('header',$data);
 		$data['countries'] = $this->create_user->get_countries();
         $data['years'] = $this->create_user->get_years();
+		$this->load->view('headervoid');
+		$this->load->view('language');      
 		$this->load->view('form_signin', $data);
 		$this->load->view('footer');
 	}

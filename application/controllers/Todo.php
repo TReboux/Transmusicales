@@ -33,6 +33,7 @@ class Todo extends CI_Controller {
 		}
 		$this->load->view('header',$data);
 		$this->load->view('headerdisco');
+		$this->load->view('language');      
 		
 
 		$salles = array(

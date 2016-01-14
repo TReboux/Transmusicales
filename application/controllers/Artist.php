@@ -25,6 +25,7 @@ class Todo extends CI_Controller {
 		$salle=$this->artist_model->get_salles();
 		$this->load->view('header',$data);
 		$this->load->view('headerdisco');
+		$this->load->view('language');      
 		$this->load->view('liste_salle');
 		$this->load->view('footer');
 	}

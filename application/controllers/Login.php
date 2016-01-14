@@ -18,6 +18,8 @@ class Login extends CI_Controller {
  		echo form_open('verifylogin');
 		$data['title'] = 'Connexion';
 		$this->load->view('header',$data);
+		$this->load->view('headervoid');
+		$this->load->view('language');      
 		$this->load->view('form_login');
 		$this->load->view('footer');
 	}
