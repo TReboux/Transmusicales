@@ -1,0 +1,11 @@
+			<div class="text-center col-md-3">
+				<h3><?php echo $_SESSION['username']; ?> connecté</h3>
+				<br/>
+				<a class="disco" href="todo/logout">
+					<span class="glyphicon glyphicon-log-out"></span> Se déconnecter
+				</a>
+			</div>
+		</div>
+		<div class="app container">
+			<div class="col-md-12">
+			

@@ -1,0 +1,12 @@
+	<div class="col-md-3">
+			<h2>Se connecter</h2>
+			<?php echo validation_errors(); ?>
+			<?php echo form_open('verifylogin'); ?>
+			<input class="inp-s5" type="text" size="23" id="username" name="username" placeholder="login"/>
+			<br/>
+			<input class="inp-s5" type="password" size="23" id="password" name="password" placeholder="password"/>
+			<br/>
+			<input class="btn col-md-12 inp-s5 inp-sub"type="submit" value="Login"/>
+			</form>
+	</div>
+   

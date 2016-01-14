@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>TODOList</title>
+		<?php
+			$this->load->helper('html'); 
+			echo link_tag('css/bootstrap.min.css');
+			echo link_tag('css/style.css');
+		?>
+	</head>
+
+	<body>
+		<div class="header container">
+			<div class="text-center col-md-3">
+				<a href="#">
+					<span class="glyphicon glyphicon-home"></span>
+					<h2>Accueil</h2>
+				</a>
+			</div>
+			<div class="text-center col-md-6">
+				<a href="#"><h1>TODOList</h1></a>
+				<h2>Application de création de Todo list</h2>
+			</div>
+			<div class="text-center col-md-3">
+				<?php $conn = 'login'; ?>
+				<a href="<?php echo "$conn" ?>">
+					<span class="glyphicon glyphicon-user"></span>
+					<h2>Connexion</h2>
+				</a>
+			</div>
+		</div>
+		<div class="app container">
+			<div class="col-md-12">
+			

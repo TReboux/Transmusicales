@@ -1,0 +1,25 @@
+<?php
+Class CreateUser extends CI_Model
+{
+function signin($username, $login,  $password)
+{
+   $this -> db -> insert('login, name, pass');
+   $this -> db -> into('_user');
+   $this -> db -> values('name', $username);
+   $this -> db -> values('login', $login);
+   $this -> db -> values('pass', $password);
+   $this -> db -> limit(1);
+ 
+   $query = $this -> db -> get();
+ 
+   if($query -> num_rows() == 1)
+   {
+     return $query->result();
+   }
+   else
+   {
+     return false;
+   }
+}
+}
+?>

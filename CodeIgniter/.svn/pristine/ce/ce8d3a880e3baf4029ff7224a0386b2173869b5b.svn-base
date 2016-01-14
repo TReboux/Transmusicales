@@ -1,0 +1,69 @@
+<?php
+if (!isset($_SESSION['username']) && !isset($_SESSION['login']) && !isset($_SESSION['password'])){
+	$_SESSION['username']="";	
+	$_SESSION['login']="";
+	$_SESSION['password']="";
+}
+
+class Todo extends CI_Controller {
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('todo_model');
+		$this->load->helper('url');
+		$this->load->library('session');
+	}
+
+	public function index(){
+		if($this->session->userdata('logged_in')){
+		     $session_data = $this->session->userdata('logged_in');
+		     $data['username'] = $_SESSION['username'] = $session_data['username'];
+		     $data['login'] = $_SESSION['login'] = $session_data['login'];
+		     $data['password'] = $_SESSION['password'] = $session_data['password'];
+		}else{
+		     //If no session, redirect to login page
+		     redirect('login', 'refresh');
+		}
+		$user=$data['username'];
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$data['title'] = 'Todo list';
+		$this->form_validation->set_rules('title','Enonc&eacute;','required');
+		if ($this->form_validation->run() !== FALSE ){
+			$this->todo_model->todo_add_task();
+		}
+		$this->load->view('header',$data);
+		$this->load->view('headerdisco');
+		$this->load->view('form');
+		$data['todolist'] = $this->todo_model->todo_get_tasks();
+		$this->load->view('task_list',$data);
+		$this->load->view('footer');
+	}
+	
+	public function create(){
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$data['title'] = 'Cr&eacute;er une t&acirc;che';
+		$this->form_validation->set_rules('title', 'Enonc&eacute;', 'required');
+		if ($this->form_validation->run() == FALSE){
+			$this->load->view('header',$data);
+			$this->load->view('headerdisco');
+			$this->load->view('form');
+			$this->load->view('footer');
+		}else{
+			$this->todo_model->todo_add_task() ;
+			$this->load->view('add_success');
+		}	
+	}
+	
+	public function delete($taskid){
+		$this->todo_model->todo_delete_task($taskid);
+		redirect('todo','refresh');
+	}
+
+	function logout(){
+	   $this->session->unset_userdata('logged_in');
+	   session_destroy();
+	   redirect('login', 'refresh');
+	}
+}
+?>

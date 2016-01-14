@@ -1,0 +1,29 @@
+<?php
+	class Todo_model extends CI_Model {
+		public function __construct(){
+			$this->load-> database() ;
+			$this->load->library('session');
+		}
+		
+		public function todo_get_tasks (){
+			$this->db->select('rang,description');
+   			$this->db->from('task');
+   			$this->db->where('login', $_SESSION['login']);
+			$query = $this->db->get();
+			return $query->result_array() ;
+		}
+		
+		public function todo_add_task (){
+			$data = array(
+				'login'=>$_SESSION['login'],
+				'description'=>$this->input->post('title')
+			);
+			return $this->db->insert('task',$data);
+		}
+		
+		public function todo_delete_task($numTask){
+			$data = array('rang'=>$numTask);
+			$this->db->delete('task',$data);
+		}
+	}
+?>

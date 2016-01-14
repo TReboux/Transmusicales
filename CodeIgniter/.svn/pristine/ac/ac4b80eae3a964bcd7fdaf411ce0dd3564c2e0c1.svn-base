@@ -1,0 +1,21 @@
+<?php echo '<h2>'.$title.'</h2>' ?>
+	<table class="table table-hover">
+		<thead>
+	      		<tr>
+				<th></th>
+				<th>Numéro tâche</th>
+				<th>Enoncé</th>
+				<th>Supprimer</th>
+			</tr>
+		</thead>
+		<tbody>
+	<?php foreach($todolist as $todo_item): ?>
+	<tr>
+		<td><span class="glyphicon glyphicon-arrow-up"></span><span class="glyphicon glyphicon-arrow-down"></span></td>
+		<td><?php echo $todo_item["rang"] ?></td>
+		<td><?php echo $todo_item['description']?></td>
+		<td><?php echo anchor('todo/delete/'.$todo_item["rang"],'<span class="glyphicon glyphicon-trash"></span>'); ?></td>
+	</tr>
+	<?php endforeach ?>
+		</tbody>
+	</table>

@@ -1,0 +1,9 @@
+<html>
+	<head>
+		<title> <?php echo $title ?>- CodeIgniter 3 Tutorial</title>
+		<link rel='stylesheet' style="text/css" href="<?php echo base_url("application/css/bootstrap.min.css")?>">
+		<link rel='stylesheet' style="text/css" href="<?php echo base_url("appication/css/style.css")?>">
+	</head>
+
+	<body>
+		<h1>CodeIgniter 3 Tutorial</h1>

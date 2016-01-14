@@ -1,0 +1,10 @@
+	<div class="text-center col-md-3">
+				<a href="<?php echo "$conn" ?>">
+					<span class="glyphicon glyphicon-user"></span>
+					<h2>Connexion</h2>
+				</a>
+			</div>
+		</div>
+		<div class="app container">
+			<div class="col-md-12">
+			

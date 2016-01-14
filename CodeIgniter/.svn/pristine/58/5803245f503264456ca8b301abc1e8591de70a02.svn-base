@@ -1,0 +1,9 @@
+<h2>Se connecter</h2>
+
+<?php echo form_open('todo/index') ?>
+	<label for="title">Identifiant</label>
+	<input type="input" name="id" class="form-control"/><br/>
+	<label for="title">Mot de passe</label>
+	<input type="password" name="mdp" class="form-control"/><br/>
+	<input type="submit" name="submit" value="Se connecter" class="btn btn-success"/>
+</form >

@@ -1,0 +1,24 @@
+<?php
+Class User extends CI_Model
+{
+function login($name, $pass)
+{
+   $this -> db -> select('login, name, pass');
+   $this -> db -> from('user');
+   $this -> db -> where('name', $name);
+   $this -> db -> where('pass', MD5($pass));
+   $this -> db -> limit(1);
+ 
+   $query = $this -> db -> get();
+ 
+   if($query -> num_rows() == 1)
+   {
+     return $query->result();
+   }
+   else
+   {
+     return false;
+   }
+}
+}
+?>

@@ -1,0 +1,8 @@
+<h2>Cr&eacute;er une t&acirc;che</h2>
+<?php echo validation_errors(); ?>
+<?php echo form_open('todo/index') ?>
+	<div class="col-md-12"><label for="title">Enonc&eacute; de la t&acirc;che</label></div>
+	<div class="col-md-8"><input type="input" name="title" class="form-control"/><br/></div>
+	<div class="col-md-4"><input type="submit" name="submit" value="Cr&eacute;er une t&acirc;che" class="btn btn-primary"/></div>
+	<br/><br/><br/>
+</form >

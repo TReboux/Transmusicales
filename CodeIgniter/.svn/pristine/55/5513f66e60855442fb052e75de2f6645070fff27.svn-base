@@ -1,0 +1,31 @@
+<?php
+	class CreateUser extends CI_Model
+	{
+		public function __construct(){
+			$this->load->database();
+		}
+		
+		public function signin()
+		{
+			$login=$this->input->post('login');
+			$this -> db -> select('*');
+			$this -> db -> from('_user');
+			$this -> db -> where('login', $login);
+			
+			$query = $this -> db -> get();
+			
+			if ($query->num_rows() > 0)
+			{
+			   return false;
+			}else{
+				$data = array(
+				'name'=>$this->input->post('username'),
+				'login'=>$this->input->post('login'),
+				'pass'=>$this->input->post('password')
+				);
+				$this->db->insert('user', $data);
+				return true;
+			}
+		}
+	}
+?>

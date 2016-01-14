@@ -1,0 +1,29 @@
+<?php
+if (!isset($_SESSION['login']) && !isset($_SESSION['mdp'])){
+	$_SESSION['login']="";
+	$_SESSION['mdp']="";
+}
+
+class Signin extends CI_Controller {
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('url');
+	}
+
+	public function index(){
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		echo validation_errors();
+ 		echo form_open('verifylogin');
+		$data['title'] = 'Connexion';
+		$this->form_validation->set_rules('title','Enonc&eacute;','required');
+		if ($this->form_validation->run() !== FALSE ){
+			$this->todo_model->todo_add_task();
+		}
+		$this->load->view('header',$data);
+		$this->load->view('headerco');
+		$this->load->view('form_signin');
+		$this->load->view('footer');
+	}
+}
+?>

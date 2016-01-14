@@ -1,0 +1,64 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body{
+	background-color:#337ab7;
+	font-family: 'Montserrat', sans-serif;
+}
+
+h2{
+	text-align:center;
+}
+
+.header, .footer{
+	color:#fff;
+	padding:10px;
+}
+
+.app{
+	background-color:#A9A9A9;
+	border-radius:4px;
+	padding: 10px;
+}
+
+.header a{
+	color:#fff;
+}
+
+.glyphicon {
+    font-size: 50px;
+}
+
+.glyphicon-trash{
+    font-size: 20px;
+}
+
+.descript{
+	font-size:20px;
+}
+
+.inp-s5{
+	color: #337ab7;
+	margin: 5px;
+	border-radius:4px;
+}
+
+.inp-sub{
+	font-size: 14px;
+}
+
+.inp-sub:hover{
+	color: #337ab7;
+}
+
+.error{
+	color: #ff0000;
+	text-align: center;
+}
+
+.disco{
+	font-size:20px;
+}
+
+.glyphicon-log-out{
+    font-size: 20px;
+}

@@ -1,0 +1,14 @@
+	<div class="col-md-3">
+			<h2>Se connecter</h2>			
+			<div class="error">
+				<?php echo validation_errors(); ?>
+				<?php echo form_open('verifylogin'); ?>
+			</div>
+			<input class="inp-s5 form-control" type="text" id="username" name="username" placeholder="Identifiant"/>
+			<input class="inp-s5 form-control"" type="password" id="password" name="password" placeholder="Mot de passe"/>
+			<input class="btn col-md-12 inp-s5 inp-sub"type="submit" value="Se connecter"/>
+			</form>
+			<a class="btn col-md-12" href="signin">Pas inscrit ? Cliquez ici !</a>
+		</div>
+	</div>
+   
